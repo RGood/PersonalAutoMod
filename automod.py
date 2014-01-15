@@ -86,6 +86,8 @@ def exitApp():
     sys.exit(1)
  
 def runBot():
+	# Test commit
+	
     """Start a run of the bot."""
     logging.info("Starting bot.")
     settings = loadSettings()
