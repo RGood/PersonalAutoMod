@@ -20,14 +20,6 @@ def getSubreddit(settings, reddit):
     """Get the subreddit."""
     return reddit.get_subreddit(settings["reddit_subreddit"])
  
-def submitContent(subreddit, title, link):
-    """Submit a link to a subreddit."""
-    logging.info("Submitting %s (%s)", (title, link))
-    try:
-        subreddit.submit(title, url=link)
-    except praw.errors.APIException:
-        logging.exception("Error on link submission.")
- 
 # Main functions
 def loadSettings():
     """Load settings from file."""
@@ -63,22 +55,7 @@ def loadSettings():
         logging.critical("Reddit bot user agent not set.")
         exitApp()
  
-    if (len(settings["youtube_account"]) == 0):
-        logging.critical("YouTube account not set.")
-        exitApp()
- 
     settings["repost_protection"] = bool(settings["repost_protection"])
- 
-    # Get last upload position
-    try:
-        lastUploadFile = open("lastupload.txt", "r")
-        lastUpload = lastUploadFile.read()
-        lastUploadFile.close()
- 
-        settings["youtube_lastupload"] = lastUpload
-    except IOError:
-        logging.info("No last uploaded video found.")
-        settings["youtube_lastupload"] = None
  
     return settings
 
