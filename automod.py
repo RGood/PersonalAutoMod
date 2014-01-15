@@ -86,7 +86,7 @@ def exitApp():
     sys.exit(1)
  
 def runBot():
-	# Test commit
+	# Test commit back at Rich
 	
     """Start a run of the bot."""
     logging.info("Starting bot.")
