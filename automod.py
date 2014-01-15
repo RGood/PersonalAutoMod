@@ -100,16 +100,12 @@ def runBot():
     logging.info("Done!")
  
 if __name__ == "__main__":
-    max_time = int(60)
-    start_time = time.time()  # remember when we started
-    while (time.time() - start_time) < max_time:
-        logging.basicConfig()
  
-        try:
-            runBot()
-        except SystemExit:
-            logging.info("Exit called.")
-        except:
-            logging.exception("Uncaught exception.")
- 
+    try:
+        runBot()
+    except SystemExit:
+        logging.info("Exit called.")
+    except:
+        logging.exception("Uncaught exception.")
+	
     logging.shutdown()
