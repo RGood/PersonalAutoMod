@@ -59,7 +59,7 @@ def loadSettings():
  
     return settings
 
-def monitorActivity():
+def monitorActivity(sr):
     data = sr.get_new(limit=1)
     post = data.next()
     if time.time() - post.created > -28740 and post.num_comments==0:
