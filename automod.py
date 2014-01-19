@@ -59,11 +59,16 @@ def loadSettings():
  
     return settings
 
+def monitorActivity():
+    data = sr.get_new(limit=1)
+    post = data.next()
+    if time.time() - post.created > -28740 and post.num_comments==0:
+        sr.send_message("There is no comment in this thread", "Hello yer twat")
+
 def exitApp():
     sys.exit(1)
  
 def runBot():
-	# Test commit back at Randy
 	
     """Start a run of the bot."""
     logging.info("Starting bot.")
