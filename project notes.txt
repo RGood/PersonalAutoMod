@@ -1,0 +1,5 @@
+General Requirements:
+
+If a post remains uncommented for 24 hours, notify mods via modmail.
+
+If a post contains certain flagged words (tbd), notify mods via modmail.
